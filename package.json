@@ -1,7 +1,7 @@
 {
   "name": "unstorage-pinia-plugin",
-  "version": "0.1.0",
-  "description": "Unstorage plugin for Pinia state manager",
+  "version": "0.1.1",
+  "description": "Pinia store persistence and hydration using unstorage",
   "keywords": [
     "Pinia",
     "unstorage",
