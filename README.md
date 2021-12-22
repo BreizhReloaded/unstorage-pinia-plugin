@@ -49,11 +49,11 @@ import { defineStore } from 'pinia';
 import { defineStoreStorage } from 'unstorage-pinia-plugin';
 import localStorageDriver from 'unstorage/drivers/localstorage';
 
-export const useDemo = defineStore('store', {
+export const useStore = defineStore('store', {
   // define your state, getters and actions
 });
 
-defineStoreStorage('demo', {
+defineStoreStorage('store', {
   driver: localStorageDriver()
 });
 ```
