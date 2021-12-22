@@ -19,7 +19,7 @@
   "scripts": {
     "build": "rollup -c",
     "clean": "rimraf dist",
-    "lint": "eslint . --ext .ts && sort-package-json",
+    "lint": "eslint . --ext .ts --fix && sort-package-json",
     "prepack": "npm run clean && npm run build"
   },
   "devDependencies": {

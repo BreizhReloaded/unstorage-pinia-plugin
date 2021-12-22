@@ -12,5 +12,5 @@ export const createStoragePlugin = ({ driver }: CreateStorageOptions) => {
     store.$subscribe(() => {
       storage.setItem(store.$id, JSON.stringify(store.$state));
     });
-  }
+  };
 };
