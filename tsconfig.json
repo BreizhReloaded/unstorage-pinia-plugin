@@ -11,7 +11,9 @@
       "esModuleInterop": true,
       "lib": ["esnext", "dom"],
       "skipLibCheck": true,
-      "declaration": true
+      "declaration": true,
+      "declarationMap": true,
+      "declarationDir": "./dist"
     },
     "include": ["src/**/*.ts", "src/**/*.d.ts"]
   }
