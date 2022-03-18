@@ -1,6 +1,6 @@
 {
   "name": "unstorage-pinia-plugin",
-  "version": "0.3.0-beta.1",
+  "version": "1.0.0",
   "description": "Pinia store persistence and hydration using unstorage",
   "keywords": [
     "Pinia",
