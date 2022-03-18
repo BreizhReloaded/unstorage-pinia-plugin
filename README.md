@@ -24,7 +24,7 @@ import localStorageDriver from 'unstorage/drivers/localstorage';
 const pinia = createPinia();
 
 pinia.use(createUnstoragePlugin({
-  driver: localStorageDriver()
+  // unstorage plugin options
 }));
 
 export default pinia;
@@ -74,7 +74,7 @@ export const useStore = defineUnstore(
     // define your state, getters and actions
   },
   {
-    // unstorage plugin options
+    // unstorage store options
   }
 );
 ```
