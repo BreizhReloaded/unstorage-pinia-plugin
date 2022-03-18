@@ -33,7 +33,6 @@ export const defineUnstore = <Id extends string, S extends StateTree = {}, G ext
 
 export const createUnstoragePlugin = ({ driver }: PluginOptions = {}) => {
   return({ options, store }: PiniaPluginContext) => {
-    console.log('init per store');
     if(options.unstorage) {
       configureStore(store, createStorage({ driver: options.unstorage.driver }), options.unstorage.filter);
     }
