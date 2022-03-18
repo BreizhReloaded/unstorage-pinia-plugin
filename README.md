@@ -18,12 +18,12 @@ Global driver:
 ```ts
 // pinia.ts
 import { createPinia } from 'pinia';
-import { createStoragePlugin } from 'unstorage-pinia-plugin';
+import { createUnstoragePlugin } from 'unstorage-pinia-plugin';
 import localStorageDriver from 'unstorage/drivers/localstorage';
 
 const pinia = createPinia();
 
-pinia.use(createStoragePlugin({
+pinia.use(createUnstoragePlugin({
   driver: localStorageDriver()
 }));
 
@@ -34,26 +34,57 @@ Per store driver:
 ```ts
 // pinia.ts
 import { createPinia } from 'pinia';
-import { createStoragePlugin } from 'unstorage-pinia-plugin';
+import { createUnstoragePlugin } from 'unstorage-pinia-plugin';
 
 const pinia = createPinia();
 
-pinia.use(createStoragePlugin());
+pinia.use(createUnstoragePlugin());
 
 export default pinia;
 ```
 
 ```ts
 // store.ts
+import { computed, ref } from 'vue';
 import { defineStore } from 'pinia';
 import { defineStoreStorage } from 'unstorage-pinia-plugin';
 import localStorageDriver from 'unstorage/drivers/localstorage';
 
-export const useStore = defineStore('store', {
-  // define your state, getters and actions
-});
-
-defineStoreStorage('store', {
-  driver: localStorageDriver()
+export const useStore = defineStore(
+  'store',
+  () => {
+    // setup and return your state, getters and actions
+  },
+  {
+    unstorage: {
+      // unstorage store options
+    }
+  }
 });
 ```
+
+If you prefer the option way:
+```ts
+import { defineUnstore } from 'unstorage-pinia-plugin';
+import localStorageDriver from 'unstorage/drivers/localstorage';
+
+export const useStore = defineUnstore(
+  'store',
+  {
+    // define your state, getters and actions
+  },
+  {
+    // unstorage plugin options
+  }
+);
+```
+
+## Configuration
+
+### Plugin options
+- `driver: Driver` : Default unstorage driver (see [list](https://github.com/unjs/unstorage#drivers)).
+
+### Store options
+- `driver: Driver` : Driver for the store (see [list](https://github.com/unjs/unstorage#drivers)).
+
+- `filter?: Array<string>` : State keys you actually want to persist. All keys are pushed by default.
